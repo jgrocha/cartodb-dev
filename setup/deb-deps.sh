@@ -24,3 +24,4 @@ apt-get install -y make unp zip libgeos-c1 libgeos-dev gdal-bin libgdal1-dev lib
   postgresql-plpython-9.1 ruby1.9.1 ruby1.9.1-dev nodejs npm redis-server libmapnik-dev \
   mapnik-utils python-mapnik git python-setuptools python-gdal gdal-bin libgdal1-dev
 
+apt-get install -y imagemagick nmap

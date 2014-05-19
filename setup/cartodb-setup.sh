@@ -14,9 +14,14 @@ ln -s /usr/local/etc/pg_hba.conf /etc/postgresql/9.1/main/pg_hba.conf
 
 # jgr
 # Error: schema cartodb does not exist
-cp lib/sql/scripts-available/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql.old
-cp /usr/local/etc/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql
+# cp lib/sql/scripts-available/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql.old
+# cp /usr/local/etc/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql
+rm lib/sql/scripts-available/CDB_SearchPath.sql
 
+# jgr
+sudo sysctl vm.overcommit_memory=1
+echo 'vm.overcommit_memory = 1' | sudo tee -a /etc/sysctl.conf
+	
 # jgr
 redis-server &
 
@@ -30,11 +35,15 @@ export EMAIL=monkey@example.com
 
 echo "127.0.0.1 ${USER}.localhost.lan" | sudo tee -a /etc/hosts
 
+# lib/tasks/setup.rake
+
 bundle exec rake rake:db:create
 bundle exec rake rake:db:migrate
 bundle exec rake cartodb:db:create_publicuser
 bundle exec rake cartodb:db:create_user SUBDOMAIN="${USER}" PASSWORD="${PASSWORD}" EMAIL="${EMAIL}"
-bundle exec rake cartodb:db:create_importer_schema
+# jgr
+# bundle exec rake cartodb:db:create_importer_schema
+bundle exec rake cartodb:db:create_schemas
 bundle exec rake cartodb:db:load_functions
 
 ln -s /usr/local/etc/cartodb.development.js /usr/local/src/CartoDB-SQL-API/config/environments/development.js

@@ -1,6 +1,6 @@
 module.exports.base_url     = '/api/v1';
 module.exports.node_port    = 8080;
-module.exports.node_host    = '127.0.0.1';
+module.exports.node_host    = '';
 // idle socket timeout, in miliseconds
 module.exports.node_socket_timeout    = 600000;
 module.exports.environment  = 'development';

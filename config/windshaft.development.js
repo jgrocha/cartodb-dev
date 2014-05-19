@@ -1,7 +1,7 @@
 var config = {
      environment: 'development'
     ,port: 8181
-    ,host: '127.0.0.1'
+    ,host: ''
     // Maximum number of connections for one process
     // 128 is a good value with a limit of 1024 open file descriptors
     ,maxConnections:128
