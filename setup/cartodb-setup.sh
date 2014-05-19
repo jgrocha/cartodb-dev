@@ -13,6 +13,11 @@ ln -s /usr/local/etc/pg_hba.conf /etc/postgresql/9.1/main/pg_hba.conf
 /etc/init.d/postgresql restart
 
 # jgr
+# Error: schema cartodb does not exist
+cp lib/sql/scripts-available/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql.old
+cp /usr/local/etc/CDB_SearchPath.sql lib/sql/scripts-available/CDB_SearchPath.sql
+
+# jgr
 redis-server &
 
 sleep 5s
