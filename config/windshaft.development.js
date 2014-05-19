@@ -28,7 +28,8 @@ var config = {
         simplify_geometries: true,
         max_size: 500
     }
-    ,mapnik_version: undefined
+    // version 2.1.0 is installed
+    ,mapnik_version: '2.1.1'
     ,renderer: {
       // Milliseconds since last access before renderer cache item expires
       cache_ttl: 60000,

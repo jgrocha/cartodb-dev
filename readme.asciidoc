@@ -30,3 +30,7 @@ The vagrant configuration forwards port 3000 from the host to the guest. So monk
 
 Have fun!
 
+== Problems...
+
+Some problem with the tile server
+
